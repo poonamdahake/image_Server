@@ -16,11 +16,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 //app.use(cors())
+// For Upload image give Cors error
  app.use(cors('indentImages',express.static('/images')));
 
 app.post('/images', upload.single('file'), function (req, res) {
   res.json({})
 })
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
